@@ -30,6 +30,12 @@ MiPackageBlueprintBrowser class >> title [
 ]
 
 { #category : #testing }
+MiPackageBlueprintBrowser >> canFollowEntity: anEntity [
+	^ (self needUpdate: anEntity) and: [ 
+		  (anEntity asMooseSpecializedGroup isKindOf: FamixTypeGroup) ]
+]
+
+{ #category : #testing }
 MiPackageBlueprintBrowser >> canReceiveEntity: anEntity [
 	^ (self needUpdate: anEntity) and: [ 
 		  (anEntity asMooseSpecializedGroup isKindOf: FamixTypeGroup) ]
@@ -41,12 +47,12 @@ MiPackageBlueprintBrowser >> followEntity: anEntity [
 	^ visualization entities: anEntity
 ]
 
-{ #category : #actions }
+{ #category : #initialization }
 MiPackageBlueprintBrowser >> initializePresenters [
 
 
 	super initializePresenters.
-	visualization := self instantiate: MiSystemComplexityVisualization.
+	visualization := self instantiate: MiPackageBlueprintVisualization.
 ]
 
 { #category : #testing }
