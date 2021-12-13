@@ -8,11 +8,13 @@ Class {
 BaselineOfPackageBlueprint >> baseline: spec [
 
 	<baseline>
-	spec for: #common do: [ 
+	spec for: #common do: [ spec
+			package: 'PackageBlueprint' ].
+	spec for: #NeedsMooseIDE do: [ 
 		spec
 			package: 'PackageBlueprint'
-			with: [ spec requires: #( 'MooseIDE' ) ] ].
-	spec for: #NeedsMooseIDE do: [ 
+			with: [ spec requires: #( 'MooseIDE' ) ].
+
 		spec baseline: 'MooseIDE' with: [ 
 			spec repository:
 				'github://moosetechnology/MooseIDE:development/src' ] ]
